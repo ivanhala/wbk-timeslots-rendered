@@ -5,11 +5,9 @@ jQuery(document).on('wbk_timeslots_rendered', function() {
 });
 function my_on_wbk_timeslots_rendered(){
     console.log( jQuery('.wbk-slot-active-button').length );
-    if( jQuery('.wbk-slot-active-button').not('#wbk-to-checkout').length < 10 ){    
-      	if( jQuery('.wbk_dynamic_style').length == 0 ){
-	        jQuery("<style class='wbk_dynamic_style' type='text/css'>#wbk-to-checkout{ display:none !important; } </style>").appendTo('head');         
-        }      
+    if( jQuery('.wbk-slot-active-button').not('#wbk-to-checkout').length >= 10 ){    
+      	jQuery('.wbk-slot-button').not('.wbk-slot-active-button').prop('disabled', true );
     } else {
-        jQuery('.wbk_dynamic_style').remove();
+        jQuery('.wbk-slot-button').not('.wbk-slot-active-button').prop('disabled', false );
     }
-}   
+}    
